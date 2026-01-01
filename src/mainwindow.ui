@@ -1,0 +1,1488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1600</width>
+    <height>1228</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>双设备采集系统</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayoutMain">
+    <item>
+     <widget class="QPushButton" name="btnShowMultiSection">
+      <property name="styleSheet">
+       <string notr="true">QPushButton { background-color: #FFC107; color: black; font-weight: bold; padding: 8px 16px; border-radius: 4px; }</string>
+      </property>
+      <property name="text">
+       <string>测试通道显示</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayoutTop">
+      <item>
+       <widget class="QGroupBox" name="groupBoxDPS">
+        <property name="title">
+         <string>DPS-16P2 压力扫描阀</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutDPS">
+         <item>
+          <widget class="QGroupBox" name="groupBoxNetwork">
+           <property name="title">
+            <string>网络配置（说明书4.2.18）</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayoutNetwork">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelIP">
+              <property name="text">
+               <string>设备IP：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineEdit_ip">
+              <property name="text">
+               <string>192.168.100.105</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="labelPort">
+              <property name="text">
+               <string>端口：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLineEdit" name="lineEdit_port">
+              <property name="text">
+               <string>9000</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QPushButton" name="pushButton_update">
+              <property name="text">
+               <string>连接</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelSubnet">
+              <property name="text">
+               <string>子网掩码：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_subnet">
+              <property name="text">
+               <string>255.255.255.0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="labelGateway">
+              <property name="text">
+               <string>网关：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="lineEdit_gateway">
+              <property name="text">
+               <string>192.168.100.1</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QPushButton" name="btnApplyNetwork">
+              <property name="text">
+               <string>应用网络配置</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxCollect">
+           <property name="title">
+            <string>采集配置（说明书4.2.8）</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayoutCollect">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelSync">
+              <property name="text">
+               <string>同步方式：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="comboSync">
+              <item>
+               <property name="text">
+                <string>硬件触发(0)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>内部时钟(1)</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="labelPeriod">
+              <property name="text">
+               <string>采集周期(ms)：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLineEdit" name="lineEdit_period">
+              <property name="text">
+               <string>20</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QLabel" name="labelFormat">
+              <property name="text">
+               <string>数据格式：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="5">
+             <widget class="QComboBox" name="comboFormat">
+              <item>
+               <property name="text">
+                <string>大头格式(7)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>小头格式(8)</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelTrigger">
+              <property name="text">
+               <string>触发方式：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="comboTrigger">
+              <item>
+               <property name="text">
+                <string>上升沿</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>下降沿</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>双沿</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="labelCollectNum">
+              <property name="text">
+               <string>采集次数(0=连续)：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="lineEdit_collectNum">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QLabel" name="labelUnit">
+              <property name="text">
+               <string>压力单位：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="5">
+             <widget class="QComboBox" name="comboUnit">
+              <item>
+               <property name="text">
+                <string>psi</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>kPa</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="6">
+             <widget class="QPushButton" name="btnApplyUnit">
+              <property name="text">
+               <string>应用单位</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="7">
+             <widget class="QPushButton" name="btnApplyCollect">
+              <property name="text">
+               <string>应用采集配置</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxCalib">
+           <property name="title">
+            <string>校准配置（说明书5）</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayoutCalib">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btnZeroCalib">
+              <property name="text">
+               <string>零点校准（h命令）</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="labelSpanPress">
+              <property name="text">
+               <string>满量程压力(psi)：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLineEdit" name="lineEdit_spanPress">
+              <property name="text">
+               <string>100</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QPushButton" name="btnSpanCalib">
+              <property name="text">
+               <string>满量程校准（Z命令）</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelCalibPoints">
+              <property name="text">
+               <string>校准点数：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_calibPoints">
+              <property name="text">
+               <string>5</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="labelCalibOrder">
+              <property name="text">
+               <string>拟合阶数：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="lineEdit_calibOrder">
+              <property name="text">
+               <string>1</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QLabel" name="labelCalibAvg">
+              <property name="text">
+               <string>平均次数：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="5">
+             <widget class="QLineEdit" name="lineEdit_calibAvg">
+              <property name="text">
+               <string>500</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="6">
+             <widget class="QPushButton" name="btnMultiCalibStart">
+              <property name="text">
+               <string>启动多点校准（C 00）</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="btnMultiCalibCollect">
+              <property name="text">
+               <string>采集校准点（C 01）</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="btnMultiCalibCalc">
+              <property name="text">
+               <string>计算校准系数（C 02）</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QPushButton" name="btnMultiCalibAbort">
+              <property name="text">
+               <string>终止校准（C 03）</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxData">
+           <property name="title">
+            <string>数据操作</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayoutData">
+            <item>
+             <widget class="QPushButton" name="pushButton_config">
+              <property name="text">
+               <string>快速配置</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_scan">
+              <property name="text">
+               <string>开始采集（c 01）</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_stop">
+              <property name="text">
+               <string>停止采集（c 02）</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClearData">
+              <property name="text">
+               <string>清除数据</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSaveExcel">
+              <property name="text">
+               <string>保存Excel</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSimultaneousStart">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton { background-color: #4CAF50; color: white; font-weight: bold; padding: 5px 10px; border-radius: 3px; } QPushButton:disabled { background-color: #cccccc; color: #666666; }</string>
+              </property>
+              <property name="text">
+               <string>同时采集</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnSimultaneousStop">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton { background-color: #f44336; color: white; font-weight: bold; padding: 5px 10px; border-radius: 3px; } QPushButton:disabled { background-color: #cccccc; color: #666666; }</string>
+              </property>
+              <property name="text">
+               <string>同时结束</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelAutoSave">
+              <property name="styleSheet">
+               <string notr="true">QLabel { color: red; font-weight: bold; padding: 0px 10px; }</string>
+              </property>
+              <property name="text">
+               <string>自动保存: 关闭</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxTCPServer">
+           <property name="title">
+            <string>TCP数据发送服务器</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayoutTCPServer">
+            <item>
+             <widget class="QLabel" name="labelTCPStatus">
+              <property name="styleSheet">
+               <string notr="true">QLabel { color: red; font-weight: bold; padding: 5px 10px; }</string>
+              </property>
+              <property name="text">
+               <string>服务器状态: 停止</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelTCPClients">
+              <property name="styleSheet">
+               <string notr="true">QLabel { color: blue; font-weight: bold; padding: 5px 10px; }</string>
+              </property>
+              <property name="text">
+               <string>连接客户端: 0</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelTCPFrames">
+              <property name="styleSheet">
+               <string notr="true">QLabel { color: green; font-weight: bold; padding: 5px 10px; }</string>
+              </property>
+              <property name="text">
+               <string>发送帧数: 0</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnTCPRestart">
+              <property name="styleSheet">
+               <string notr="true">QPushButton { background-color: #2196F3; color: white; font-weight: bold; padding: 5px 10px; border-radius: 3px; border: 1px solid #1976D2; } QPushButton:hover { background-color: #1976D2; } QPushButton:pressed { background-color: #0D47A1; }</string>
+              </property>
+              <property name="text">
+               <string>重启服务器</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxPressureChart">
+           <property name="title">
+            <string>16通道压力实时曲线</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayoutPressureChart">
+            <item>
+             <widget class="QWidget" name="pressureChartWidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>300</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClearPressureChart">
+              <property name="text">
+               <string>清除压力图表</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutCmd">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayoutCmd">
+             <item>
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="placeholderText">
+                <string>输入自定义命令（如c 00 1 FFFF 1 1000 8 0）</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="text">
+                <string>发送命令</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>设备响应与采集数据：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="textEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBoxDTS">
+        <property name="title">
+         <string>DTS-48F2 热电偶采集仪</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutDTS">
+         <item>
+          <widget class="QGroupBox" name="groupBoxDTSNetwork">
+           <property name="title">
+            <string>网络配置（说明书5.1）</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayoutDTSNetwork">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelDTSIP">
+              <property name="text">
+               <string>设备IP：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineEdit_dts_ip">
+              <property name="text">
+               <string>192.168.100.24</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="labelDTSPort">
+              <property name="text">
+               <string>端口：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLineEdit" name="lineEdit_dts_port">
+              <property name="text">
+               <string>9000</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QPushButton" name="btnDTSConnect">
+              <property name="text">
+               <string>连接</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelDTSSubnet">
+              <property name="text">
+               <string>子网掩码：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit_dts_subnet">
+              <property name="text">
+               <string>255.255.255.0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="labelDTSGateway">
+              <property name="text">
+               <string>网关：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="lineEdit_dts_gateway">
+              <property name="text">
+               <string>192.168.100.1</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QPushButton" name="btnDTSApplyNetwork">
+              <property name="text">
+               <string>应用网络配置</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QPushButton" name="btnQuickSetIP">
+              <property name="text">
+               <string>快速设置为192.168.100.24</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2" colspan="2">
+             <widget class="QPushButton" name="btnReconnectNewIP">
+              <property name="text">
+               <string>重新连接新IP</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="4">
+             <widget class="QPushButton" name="btnResetDefaultIP">
+              <property name="text">
+               <string>复位为默认IP</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxDTSConfig">
+           <property name="title">
+            <string>快速配置</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayoutDTSConfig">
+            <item>
+             <widget class="QComboBox" name="comboDTSType">
+              <item>
+               <property name="text">
+                <string>K型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>J型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>T型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>E型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>N型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>R型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>S型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>B型热电偶</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>±10V电压</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>±1V电压</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>±0.1V电压</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>±0.01V电压</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_dts_interval">
+              <property name="placeholderText">
+               <string>采样间隔(ms)，默认20</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDTSQuickConfig">
+              <property name="text">
+               <string>快速配置</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxDTSData">
+           <property name="title">
+            <string>数据操作</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayoutDTSData">
+            <item>
+             <widget class="QPushButton" name="btnDTSScan">
+              <property name="text">
+               <string>开始采集</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDTSStop">
+              <property name="text">
+               <string>停止采集</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDTSClear">
+              <property name="text">
+               <string>清除数据</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDTSSave">
+              <property name="text">
+               <string>保存数据</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelDTSAutoSave">
+              <property name="styleSheet">
+               <string notr="true">QLabel { color: red; font-weight: bold; padding: 0px 10px; }</string>
+              </property>
+              <property name="text">
+               <string>自动保存: 关闭</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxDTSDisplay">
+           <property name="title">
+            <string>48通道温度/电压数据</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayoutDTSDisplay">
+            <item>
+             <widget class="QScrollArea" name="scrollAreaDTS">
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>761</width>
+                 <height>255</height>
+                </rect>
+               </property>
+               <layout class="QGridLayout" name="gridLayoutDTSData"/>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxTemperatureChart">
+           <property name="title">
+            <string>48通道温度/电压实时曲线</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayoutTemperatureChart">
+            <item>
+             <widget class="QWidget" name="temperatureChartWidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>300</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClearTemperatureChart">
+              <property name="text">
+               <string>清除温度图表</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxMultiSectionPressure">
+      <property name="title">
+       <string>多截面压力数据显示（384通道）</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayoutMultiPressure">
+       <item>
+        <widget class="QSlider" name="sliderPressurePs">
+         <property name="minimum">
+          <number>101</number>
+         </property>
+         <property name="maximum">
+          <number>4000</number>
+         </property>
+         <property name="value">
+          <number>101</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::TickPosition::TicksBelow</enum>
+         </property>
+         <property name="tickInterval">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelPressurePs">
+         <property name="styleSheet">
+          <string notr="true">QLabel { font-weight: bold; }</string>
+         </property>
+         <property name="text">
+          <string>当前Ps值：0.101 MPa</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTabWidget" name="tabWidgetPressure">
+         <widget class="QWidget" name="tabPressure0">
+          <attribute name="title">
+           <string>0截面（192通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure0">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure0">
+             <property name="rowCount">
+              <number>12</number>
+             </property>
+             <property name="columnCount">
+              <number>16</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure01">
+          <attribute name="title">
+           <string>0.1截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure01">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure01">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure1">
+          <attribute name="title">
+           <string>1截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure1">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure1">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure15">
+          <attribute name="title">
+           <string>1.5截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure15">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure15">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure2">
+          <attribute name="title">
+           <string>2截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure2">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure2">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure3">
+          <attribute name="title">
+           <string>3截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure3">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure3">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure35">
+          <attribute name="title">
+           <string>3.5截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure35">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure35">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure4">
+          <attribute name="title">
+           <string>4截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure4">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure4">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabPressure5">
+          <attribute name="title">
+           <string>5截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutPressure5">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetPressure5">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxMultiSectionTemperature">
+      <property name="title">
+       <string>多截面温度数据显示（384通道）</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayoutMultiTemperature">
+       <item>
+        <widget class="QSlider" name="sliderTemperatureTs">
+         <property name="minimum">
+          <number>20</number>
+         </property>
+         <property name="maximum">
+          <number>1100</number>
+         </property>
+         <property name="value">
+          <number>20</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::TickPosition::TicksBelow</enum>
+         </property>
+         <property name="tickInterval">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelTemperatureTs">
+         <property name="styleSheet">
+          <string notr="true">QLabel { font-weight: bold; }</string>
+         </property>
+         <property name="text">
+          <string>当前Ts值：20 ℃</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTabWidget" name="tabWidgetTemperature">
+         <widget class="QWidget" name="tabTemperature0">
+          <attribute name="title">
+           <string>0截面（192通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature0">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature0">
+             <property name="rowCount">
+              <number>12</number>
+             </property>
+             <property name="columnCount">
+              <number>16</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature01">
+          <attribute name="title">
+           <string>0.1截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature01">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature01">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature1">
+          <attribute name="title">
+           <string>1截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature1">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature1">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature15">
+          <attribute name="title">
+           <string>1.5截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature15">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature15">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature2">
+          <attribute name="title">
+           <string>2截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature2">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature2">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature3">
+          <attribute name="title">
+           <string>3截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature3">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature3">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature35">
+          <attribute name="title">
+           <string>3.5截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature35">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature35">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature4">
+          <attribute name="title">
+           <string>4截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature4">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature4">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabTemperature5">
+          <attribute name="title">
+           <string>5截面（24通道）</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayoutTemperature5">
+           <item>
+            <widget class="QTableWidget" name="tableWidgetTemperature5">
+             <property name="rowCount">
+              <number>3</number>
+             </property>
+             <property name="columnCount">
+              <number>8</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+             <column/>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

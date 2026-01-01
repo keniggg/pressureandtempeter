@@ -1,0 +1,10 @@
+debug/main.o
+debug/mainwindow.o
+debug/tcpclient.o
+debug/xlsxdocument.o
+debug/xlsxcell.o
+debug/xlsxworkbook.o
+debug/xlsxworksheet.o
+debug/xlsxutility.o
+debug/moc_mainwindow.o
+debug/moc_tcpclient.o

@@ -1,0 +1,10 @@
+release/main.o
+release/mainwindow.o
+release/tcpclient.o
+release/xlsxdocument.o
+release/xlsxcell.o
+release/xlsxworkbook.o
+release/xlsxworksheet.o
+release/xlsxutility.o
+release/moc_mainwindow.o
+release/moc_tcpclient.o
